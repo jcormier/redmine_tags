@@ -11,12 +11,6 @@ module RedmineTags
           @tags = Issue.available_tags project: @project, name_like: @name
           render json: @tags.map(&:name).sort
         end
-
-        def wiki_tags
-          @name = params[:q].to_s
-          @tags = WikiPage.available_tags project: @project, name_like: @name
-          render json: @tags.map(&:name).sort
-        end
       end
     end
   end
